@@ -1,0 +1,29 @@
+{
+  "name": "openmls-wasm-e2e",
+  "version": "1.0.0",
+  "description": "End-to-end encryption/decryption using OpenMLS WASM module",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:wasm": "cd crates/openmls-wasm && wasm-pack build --target nodejs --out-dir ../../ts/pkg",
+    "build:ts": "tsc",
+    "build": "npm run build:wasm && npm run build:ts",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "lint": "eslint ts/src/**/*.ts",
+    "demo": "tsx ts/src/demo.ts"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.4",
+    "tsx": "^4.15.0",
+    "typescript": "^5.4.5"
+  },
+  "keywords": ["openmls", "mls", "wasm", "encryption", "e2e"],
+  "license": "MIT"
+}
