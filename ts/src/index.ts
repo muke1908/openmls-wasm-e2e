@@ -185,7 +185,10 @@ export class MlsEncryptionGroup {
  * Initialize the OpenMLS WASM module.
  * This function loads and returns the WASM module ready for use.
  *
- * @param wasmModulePath - Path to the generated WASM package (default: '../pkg')
+ * @param wasmModulePath - Path or package name to import the WASM module from.
+ *   Defaults to '../pkg/openmls_wasm.js' which assumes the WASM package was built
+ *   to 'ts/pkg/' via `npm run build:wasm`. When used as a published package or
+ *   in different project layouts, provide the correct path or package name.
  */
 export async function initOpenMls(
   wasmModulePath?: string
